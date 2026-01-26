@@ -1,0 +1,70 @@
+{
+  "domains": [
+    {
+      "id": "data-engineering",
+      "name": "Data Engineering",
+      "topics": [
+        {
+          "id": "spark",
+          "name": "Apache Spark",
+          "questions": [
+            {
+              "id": "q1",
+              "question": "How does Spark handle data skew?",
+              "options": [
+                "Repartitioning data",
+                "Broadcast joins",
+                "Salting keys",
+                "All of the above"
+              ],
+              "correctAnswer": 3,
+              "explanation": "Spark uses repartitioning, salting, and broadcast joins to mitigate data skew.",
+              "difficulty": "Medium",
+              "experience": "5+ years"
+            },
+            {
+              "id": "q2",
+              "question": "What happens when a Spark executor fails?",
+              "options": [
+                "Job fails immediately",
+                "Task is retried on another executor",
+                "Driver restarts",
+                "Cluster shuts down"
+              ],
+              "correctAnswer": 1,
+              "explanation": "Spark retries failed tasks on other executors.",
+              "difficulty": "Easy",
+              "experience": "3+ years"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aws",
+      "name": "AWS",
+      "topics": [
+        {
+          "id": "s3",
+          "name": "Amazon S3",
+          "questions": [
+            {
+              "id": "q3",
+              "question": "What is the consistency model of S3?",
+              "options": [
+                "Eventually consistent",
+                "Strong read-after-write",
+                "Strong consistency",
+                "No consistency"
+              ],
+              "correctAnswer": 2,
+              "explanation": "S3 now provides strong consistency for all operations.",
+              "difficulty": "Medium",
+              "experience": "4+ years"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
