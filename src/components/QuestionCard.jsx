@@ -1,32 +1,23 @@
-import { useState } from "react";
+import "./QuestionCard.css";
 
-const QuestionCard = ({ question }) => {
-  const [showAnswer, setShowAnswer] = useState(false);
+const QuestionCard = ({ question }) => (
+  <div className="question-card">
+    <h3 className="question-title">{question.question}</h3>
 
-  return (
-    <div style={{ border: "1px solid #ddd", padding: "15px", marginBottom: "15px" }}>
-      <h4>{question.question}</h4>
-      <ul>
-        {question.options.map((opt, index) => (
-          <li key={index}>{opt}</li>
+    {question.type === "mcq" ? (
+      <ul className="option-list">
+        {question.options.map((opt, i) => (
+          <li key={i} className="option-item">{opt}</li>
         ))}
       </ul>
-
-      <button onClick={() => setShowAnswer(!showAnswer)}>
-        {showAnswer ? "Hide Answer" : "Show Answer"}
-      </button>
-
-      {showAnswer && (
-        <div style={{ marginTop: "10px" }}>
-          <strong>Correct Answer:</strong> {question.options[question.correctAnswer]}
-          <p>{question.explanation}</p>
-          <small>
-            Difficulty: {question.difficulty} | Experience: {question.experience}
-          </small>
-        </div>
-      )}
-    </div>
-  );
-};
+    ) : (
+      <input
+        type="text"
+        className="answer-input"
+        placeholder="Type your answer here..."
+      />
+    )}
+  </div>
+);
 
 export default QuestionCard;
