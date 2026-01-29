@@ -3,10 +3,10 @@ import DomainCard from "../components/DomainCard";
 
 const Home = () => {
   return (
-    <div style={{ padding: "20px" }}>
+    <div className="container">
       <h2>Choose a Domain</h2>
-      <div style={{ display: "flex", gap: "20px" }}>
-        {data.domains.map(domain => (
+      <div className="domain-grid">
+        {data.domains.map((domain) => (
           <DomainCard key={domain.id} domain={domain} />
         ))}
       </div>
