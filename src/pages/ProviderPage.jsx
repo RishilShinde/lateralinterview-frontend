@@ -7,13 +7,22 @@ const ProviderPage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const data = await getQuestions();
-        setItems(data.filter(item => item.cloud === "Azure")); // example: filter only Azure
-      } catch (err) {
-        console.error("Failed to load questions", err);
-      }
-    };
+  try {
+    const data = await getQuestions();
+    
+    // Ensure data exists and is an array to avoid the .filter error
+    if (data && Array.isArray(data)) {
+      setItems(data.filter(item => item.cloud === "Azure"));
+    } else {
+      console.warn("Received data is not an array:", data);
+      // If the array is nested (e.g., data.questions), use that instead
+      // setItems(data.questions.filter(...)); 
+    }
+  } catch (err) {
+    console.error("Failed to load questions", err);
+  }
+};
+
     fetchData();
   }, []);
 
